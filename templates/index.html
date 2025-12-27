@@ -7,9 +7,19 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
+    <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+        <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2"/>
+            <path d="M12 1V3M12 21V23M4.22 4.22L5.64 5.64M18.36 18.36L19.78 19.78M1 12H3M21 12H23M4.22 19.78L5.64 18.36M18.36 5.64L19.78 4.22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </button>
+
     <div class="container">
         <header class="header">
             <div class="header-content">
@@ -33,6 +43,48 @@
                     them using advanced computer vision algorithms. Our system uses ORB feature detection 
                     and homography transformation to precisely align thermal images with their RGB counterparts.
                 </p>
+            </div>
+
+            <div class="samples-section">
+                <h3>📥 Try Sample Images</h3>
+                <p class="samples-description">Download sample image pairs to test the alignment algorithm</p>
+                <div class="samples-grid">
+                    <div class="sample-card">
+                        <div class="sample-number">Sample 1</div>
+                        <div class="sample-buttons">
+                            <a href="/samples/sample1_T.JPG" download class="sample-btn thermal-btn">Download Thermal</a>
+                            <a href="/samples/sample1_Z.JPG" download class="sample-btn rgb-btn">Download RGB</a>
+                        </div>
+                    </div>
+                    <div class="sample-card">
+                        <div class="sample-number">Sample 2</div>
+                        <div class="sample-buttons">
+                            <a href="/samples/sample2_T.JPG" download class="sample-btn thermal-btn">Download Thermal</a>
+                            <a href="/samples/sample2_Z.JPG" download class="sample-btn rgb-btn">Download RGB</a>
+                        </div>
+                    </div>
+                    <div class="sample-card">
+                        <div class="sample-number">Sample 3</div>
+                        <div class="sample-buttons">
+                            <a href="/samples/sample3_T.JPG" download class="sample-btn thermal-btn">Download Thermal</a>
+                            <a href="/samples/sample3_Z.JPG" download class="sample-btn rgb-btn">Download RGB</a>
+                        </div>
+                    </div>
+                    <div class="sample-card">
+                        <div class="sample-number">Sample 4</div>
+                        <div class="sample-buttons">
+                            <a href="/samples/sample4_T.JPG" download class="sample-btn thermal-btn">Download Thermal</a>
+                            <a href="/samples/sample4_Z.JPG" download class="sample-btn rgb-btn">Download RGB</a>
+                        </div>
+                    </div>
+                    <div class="sample-card">
+                        <div class="sample-number">Sample 5</div>
+                        <div class="sample-buttons">
+                            <a href="/samples/sample5_T.JPG" download class="sample-btn thermal-btn">Download Thermal</a>
+                            <a href="/samples/sample5_Z.JPG" download class="sample-btn rgb-btn">Download RGB</a>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="upload-section">
@@ -92,22 +144,22 @@
                 <h3>Key Features</h3>
                 <div class="features-grid">
                     <div class="feature-card">
-                        <div class="feature-icon"></div>
+                        <div class="feature-icon">🎯</div>
                         <h4>Precise Alignment</h4>
                         <p>Uses ORB feature detection and RANSAC-based homography for accurate image alignment</p>
                     </div>
                     <div class="feature-card">
-                        <div class="feature-icon"></div>
+                        <div class="feature-icon">⚡</div>
                         <h4>Fast Processing</h4>
                         <p>Optimized algorithms ensure quick processing of your thermal and RGB image pairs</p>
                     </div>
                     <div class="feature-card">
-                        <div class="feature-icon"></div>
+                        <div class="feature-icon">📦</div>
                         <h4>Easy Download</h4>
                         <p>Download your aligned thermal image directly as a JPG file</p>
                     </div>
                     <div class="feature-card">
-                        <div class="feature-icon"></div>
+                        <div class="feature-icon">🛡️</div>
                         <h4>Secure & Private</h4>
                         <p>Your images are processed securely and never stored on our servers</p>
                     </div>
@@ -116,11 +168,10 @@
         </main>
 
         <footer class="footer">
-            <p>RGB Thermal Overlay Algorithm. Built with Flask & OpenCV. Maha Sri Bairavanathan. 2025</p>
+            <p>&copy; 2025 RGB Thermal Overlay Algorithm. Built with Flask & OpenCV.</p>
         </footer>
     </div>
 
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
 </html>
-

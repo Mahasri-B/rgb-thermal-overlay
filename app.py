@@ -13,6 +13,11 @@ app.config['MAX_CONTENT_LENGTH'] = 50 * 1024 * 1024  # 50MB max file size
 def index():
     return render_template('index.html')
 
+@app.route('/samples/<filename>')
+def serve_sample(filename):
+    """Serve sample images for download"""
+    return send_file(f'static/samples/{filename}', as_attachment=True)
+
 
 @app.route('/align', methods=['POST'])
 def align():
