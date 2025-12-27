@@ -1,4 +1,4 @@
-from flask import Flask, request, send_file, render_template, jsonify
+from flask import Flask, request, send_file, render_template, jsonify, send_from_directory
 import io
 import os
 import cv2
@@ -16,7 +16,14 @@ def index():
 @app.route('/samples/<filename>')
 def serve_sample(filename):
     """Serve sample images for download"""
-    return send_file(f'static/samples/{filename}', as_attachment=True)
+    try:
+        return send_from_directory(
+            os.path.join(app.root_path, 'static', 'samples'),
+            filename,
+            as_attachment=True
+        )
+    except Exception as e:
+        return jsonify({'error': f'File not found: {str(e)}'}), 404
 
 
 @app.route('/align', methods=['POST'])
