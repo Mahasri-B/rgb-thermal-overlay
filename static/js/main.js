@@ -1,15 +1,23 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Theme Toggle
     const themeToggle = document.getElementById('themeToggle');
-    const currentTheme = localStorage.getItem('theme') || 'light';
-    document.documentElement.setAttribute('data-theme', currentTheme);
+    
+    if (themeToggle) {
+        // Get saved theme or default to light
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
 
-    themeToggle.addEventListener('click', function() {
-        const currentTheme = document.documentElement.getAttribute('data-theme');
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        document.documentElement.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-    });
+        // Add click event listener
+        themeToggle.addEventListener('click', function() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            console.log('Theme switched to:', newTheme); // Debug log
+        });
+    } else {
+        console.error('Theme toggle button not found!');
+    }
 
     const thermalInput = document.getElementById('thermalFile');
     const rgbInput = document.getElementById('rgbFile');
