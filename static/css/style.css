@@ -215,6 +215,7 @@ body::before {
     padding: 2.5rem;
     border: 2px solid var(--border-color);
     box-shadow: var(--shadow);
+    text-align: center;
 }
 
 .samples-section h3 {
@@ -224,6 +225,7 @@ body::before {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    text-align: center;
 }
 
 .samples-description {
@@ -540,8 +542,14 @@ body::before {
     padding: 2rem 0;
     margin-top: 3rem;
     color: var(--text-secondary);
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     border-top: 2px solid var(--border-color);
+    width: 100%;
+}
+
+.footer p {
+    margin: 0;
+    padding: 0;
 }
 
 /* Responsive */
